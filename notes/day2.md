@@ -214,7 +214,10 @@ args:
                                     We only want this if the container is going to be autoremoved
     --port, -p  IP:HOST_PORT:CONTAINER_PORT     That creates a port redirection in the host
                                                 We expose the container port
-    
+    --volume, -v HOST_PATH:CONTAINER_PATH       A new layer is created in the container FS
+                                                The host path is inyected (mounted) on top of the container layer
+                                                So that every update on that path is actually stored in the HOST FS
+    -e ENV_VAR_NAME=value           Set an environment var&value to the container
         Actual, we don't need to specify an IP
         But if we don't, "0.0.0.0" is used. That's the default IP value.
                 That means every IP I have in my host
@@ -278,15 +281,16 @@ Virtual
    |                                                                |
    172.31.9.116:81  --->   172.17.0.2:80                            |
    |                                                                |
-   IvanPC     NAT... port redirection                            YourPC
+  IvanPC     NAT... port redirection                             YourPC
    |  |
    | 172.17.0.1
    |  |
    |  |-- 172.17.0.2 -- mynginx :80
-   |  | 
-   |  docker network
+   |  |                       |
+   |  docker network          127.0.0.1
+   |                          | loopback network
    |
-   127.0.0.1 < - localhost
+   127.0.0.1:81  --->   172.17.0.2:80   < - localhost
    |
    | loopback
    
@@ -298,3 +302,8 @@ Node.   v16.20.0
 Install node as a container ... and I can have 200 containers with differsions
 
 reactJS ---> 3000
+
+---
+
+Why is not confortable (convinient) for me to work aginst the container IP
+It is automatically generated.. and also... pseudoramdom
