@@ -1,4 +1,10 @@
-version: "3.6"
+version: "3.0"
+
+# docker compose up -d
+# docker compose down
+# docker compose start
+# docker compose stop
+# docker compose restart
 
 services: # Under service we are going to DESCRIBE the containers
 
@@ -37,3 +43,4 @@ services: # Under service we are going to DESCRIBE the containers
         image:              mailhog/mailhog:latest
         ports:
                           - 8082:8025                           
+                          
