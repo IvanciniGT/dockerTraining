@@ -1,0 +1,115 @@
+# In a YAML Documento we can add COMMENTS !!!!! DAWN GREAT !!! FUCK JSON !
+# One YAML File can contain MULTIPLE YAML documents... You cannot do that with JSON or XML
+# Each document has to start with 
+---
+# But the first one... In the first one... you don't have to.
+---
+# Optionally, a document can end with
+... # You are never going to se that
+    # TIME
+---
+# A yaml document is A NODE (ONE SINGLE NODE)
+# We have 2 kind of NODES:
+# - SCALAR: They just hold a simple value
+# - COLLECITION
+---
+# Numbers
+3
+---
+12.9
+---
+-9
+---
+.Inf
+-.inf
+.INF
+---
+.nan
+.Nan
+.NAN
+---
+# Booleans
+true
+True
+TRUE
+---
+false
+FALSE
+False
+---
+# Strings are extremely complex in YAML
+I can't \type a "text" like #this
+---
+"I can't \type a \"text\" like #this"
+---
+'I can''t \type a "text" like #this'
+---
+#But YAML has 2 additional syntax for texts
+# LITERAL
+|4+
+     We can start typeing
+     What ever we want
+    Including weird symbols, such as "'|# \
+    
+    An line breaks
+    
+---
+# FOLDED
+
+>
+    docker container create
+        -v /home/ubuntu/environment/mydata/mariadb:/var/lib/mysql
+        -p 172.17.0.1:3307:3306
+        -e MARIADB_ROOT_PASSWORD=password
+        -e MARIADB_DATABASE=database
+        -e MARIADB_USER="user"
+        -e MARIADB_PASSWORD=\password 
+        --name mymariadb 
+        mariadb:latest
+        
+---
+~ # null value
+---
+# Collections
+#  Ordered Lists  ****
+#  Unordered Lists
+#  Ordered Maps
+#  Unordered maps ****
+---
+# Ordered List
+- item1
+- true
+- 34
+-
+    - subitem 1
+    - subitem 2
+-
+                    - subitem 1
+                    - subitem 2
+---
+# Additional syntax form ordered lists
+- 1
+- 2
+- 3
+---
+[1, 2, 3]
+---
+# If you want to supply an empty list: []
+---
+# Maps: Key-value caollections
+key1: value1
+key2: value2
+key3:
+    key1: value1
+    key2: value2
+key4: 
+    - item 1
+    - item 2
+---
+key1: value1
+key2: value2
+---
+{ "key1": "value1", "key2": "value2", "key4": 78, "key5": True }
+---
+# If you want to supply an empty map: {}
+---
