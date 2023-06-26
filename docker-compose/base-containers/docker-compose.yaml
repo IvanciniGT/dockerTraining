@@ -1,0 +1,29 @@
+version: "3.0"
+
+services:
+
+    ubuntu:
+        # container_name:     "my_ubuntu"
+        image:              "ubuntu:latest"
+        command:
+            - sleep # command
+            - infinity # Each command argument
+        volumes: 
+            - /home/ubuntu/environment/mydata/shared:/mydata
+
+    fedora:
+        # container_name:     my_fedora
+        image:              fedora          
+        # In this case: latest is going to be auto-applied
+        command:
+            - tail 
+            - -f 
+            - /dev/null
+        volumes: 
+            - /home/ubuntu/environment/mydata/shared:/shared
+    
+    alpine:
+        # container_name:     'my_alpine'
+        image:              'alpine'
+        command:            ['sleep', 'infinity']
+    

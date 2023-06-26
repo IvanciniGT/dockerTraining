@@ -34,8 +34,8 @@ This file comes also with several metadata:
 - Name
 - Ports that the app already installed TENDS to open
 - Env vars default values
-- Paths whre the app TENDS to store its data
-- The default command to be executed when a container created from this image is started
+- Paths where the app TENDS to store its data (VOLUMES)
+- The DEFAULT command to be executed when a container created from this image is started
 
 Where... how are container images distributed?
 Thru "container image repository registries", such as:
@@ -207,7 +207,7 @@ docker container rm CONTAINER_NAME          docker rm CONTAINER_NAME
 
 ### Create a container
 
-docker container create <args> IMAGE_REF
+docker container create <args> IMAGE_REF [COMMAND]
 
 args:
     --name NAME                     If I don't specify a name... a random one is generated.... 
