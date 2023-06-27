@@ -1,0 +1,9 @@
+version: "3.0"
+
+services:
+
+    my-site:
+        # In this case, docker is not going to download that image... as we are defining a build
+        # This info is going to be used to TAG the image
+        image: my-new-image:latest
+        build: .

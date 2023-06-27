@@ -1,0 +1,10 @@
+# Start from the latest nginx image
+FROM nginx:latest
+# Install git
+RUN apt update
+RUN apt install git -y
+# Use git clone to get the website --> /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html
+RUN git clone https://github.com/IvanciniGT/webEjemploAnsible.git /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html/.git
+RUN apt purge git -y

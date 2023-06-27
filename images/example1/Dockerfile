@@ -46,8 +46,3 @@ EXPOSE 80
 VOLUME ["/var/nginx"]
 # This line does nothing but to inform final users
 
-
-
-
-
-
