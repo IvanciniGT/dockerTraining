@@ -1,0 +1,19 @@
+version: "3.0"
+
+services:
+
+    jenkins:
+        image:              jenkins/jenkins:lts-jdk11
+        container_name:     my-jenkins
+        restart: on-failure  # This is going to start the container with the host os system
+        ports:
+            - 8081:8080
+        volumes:
+            - /home/ubuntu/environment/mydata/jenkins:/var/jenkins_home
+        # Docker In Docker
+            - /usr/bin/docker:/usr/bin/docker
+              # Is the docker client command
+            - /var/run/docker.sock:/var/run/docker.sock
+              # This is the socket communication with the docker daemon
+        user: root
+        # Execute jenkins as user root... so It can create new containers
