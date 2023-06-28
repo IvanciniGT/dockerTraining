@@ -1,0 +1,16 @@
+version: "3.0"
+
+services:
+
+    my-site:
+        #restart: always
+        # In this case, docker is not going to download that image... as we are defining a build
+        # This info is going to be used to TAG the image
+        image: my-react-app:latest
+        #build: .
+        build:
+            context: .
+            args: 
+                REPOSITORY: https://github.com/IvanciniGT/formacionReact.git
+        ports:
+            - 8080:80
