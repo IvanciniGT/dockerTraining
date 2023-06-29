@@ -1,0 +1,11 @@
+version: "3.0"
+
+services:
+    test-container:
+        image: nginx:${NGINX_VERSION}
+        environment:
+            VARIABLE1: value1
+            VARIABLE2: ${value2}
+            VARIABLE3: ${PATH}
+        env_file:
+            - additional_env_vars
